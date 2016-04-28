@@ -1,0 +1,16 @@
+version: '2'
+services:
+    hedwig-app:
+        image: hedwig
+        external_links:
+            - hedwig-mongodb:mongodb
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
+            - SPRING_DATA_MONGODB_DATABASE=hedwig
+        ports:
+            - 8080:8080
+    hedwig-mongodb:
+        extends:
+            file: mongodb.yml
+            service: hedwig-mongodb
