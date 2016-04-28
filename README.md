@@ -1,4 +1,4 @@
-# hedwig
+# Hedwig
 
 Hedwig is a Java based webapp. It collects, analyzes and archives alerts sent by Netapp devices. More documentation to follow soon.
 
