@@ -1,4 +1,5 @@
 # Hedwig
+[Travis]: https://travis-ci.org/chmutgi/Hedwig.svg?branch=master
 
 Hedwig is a Java based webapp. It collects, analyzes and archives alerts sent by Netapp devices. More documentation will follow soon.
 
