@@ -1,0 +1,73 @@
+
+<div>
+    <h2><span>Alert</span> {{vm.alert.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="hedwigApp.alert.generated_on">Generated On</span></dt>
+        <dd>
+            <span>{{vm.alert.generated_on}}</span>
+        </dd>
+        <hr>
+        <dt><span>Version</span></dt>
+        <dd>
+            <span>{{vm.alert.version}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="hedwigApp.alert.system_id">System Id</span></dt>
+        <dd>
+            <span>{{vm.alert.system_id}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="hedwigApp.alert.serial_num">Serial Num</span></dt>
+        <dd>
+            <span>{{vm.alert.serial_num}}</span>
+        </dd>
+        <hr>
+        <dt><span>Hostname</span></dt>
+        <dd>
+            <span>{{vm.alert.hostname}}</span>
+        </dd>
+        <hr>
+        <dt><span>Sequence</span></dt>
+        <dd>
+            <span>{{vm.alert.sequence}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="hedwigApp.alert.snmp_location">Snmp Location</span></dt>
+        <dd>
+            <span>{{vm.alert.snmp_location}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="hedwigApp.alert.partner_system_id">Partner System Id</span></dt>
+        <dd>
+            <span>{{vm.alert.partner_system_id}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="hedwigApp.alert.partner_serial_num">Partner Serial Num</span></dt>
+        <dd>
+            <span>{{vm.alert.partner_serial_num}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="hedwigApp.alert.partner_hostname">Partner Hostname</span></dt>
+        <dd>
+            <span>{{vm.alert.partner_hostname}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="hedwigApp.alert.boot_clustered">Boot Clustered</span></dt>
+        <dd>
+            <span>{{vm.alert.boot_clustered}}</span>
+        </dd>
+        <hr>
+        <dt><span>Alerts</span></dt>
+        <dd>
+            <span>{{vm.alert.alerts}}</span>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

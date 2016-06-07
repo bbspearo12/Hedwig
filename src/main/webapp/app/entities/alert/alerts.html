@@ -1,0 +1,76 @@
+<div>
+    <h2>ASUP</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="alert.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Alert
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span translate="hedwigApp.alert.generated_on">Generated On</span></th>
+                    <th><span>Version</span></th>
+                    <th><span translate="hedwigApp.alert.system_id">System Id</span></th>
+                    <th><span translate="hedwigApp.alert.serial_num">Serial Num</span></th>
+                    <th><span>Hostname</span></th>
+                    <th><span>Sequence</span></th>
+                    <th><span translate="hedwigApp.alert.snmp_location">Snmp Location</span></th>
+                    <th><span translate="hedwigApp.alert.partner_system_id">Partner System Id</span></th>
+                    <th><span translate="hedwigApp.alert.partner_serial_num">Partner Serial Num</span></th>
+                    <th><span translate="hedwigApp.alert.partner_hostname">Partner Hostname</span></th>
+                    <th><span translate="hedwigApp.alert.boot_clustered">Boot Clustered</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="alert in vm.alerts track by alert.id">
+                    <td><a ui-sref="alert-detail({id:alert.id})">{{alert.id}}</a></td>
+                    <td>{{alert.generated_on}}</td>
+                    <td>{{alert.version}}</td>
+                    <td>{{alert.system_id}}</td>
+                    <td>{{alert.serial_num}}</td>
+                    <td>{{alert.hostname}}</td>
+                    <td>{{alert.sequence}}</td>
+                    <td>{{alert.snmp_location}}</td>
+                    <td>{{alert.partner_system_id}}</td>
+                    <td>{{alert.partner_serial_num}}</td>
+                    <td>{{alert.partner_hostname}}</td>
+                    <td>{{alert.boot_clustered}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="alert-detail({id:alert.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="alert.edit({id:alert.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="alert.delete({id:alert.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
