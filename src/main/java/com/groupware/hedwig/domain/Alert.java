@@ -4,6 +4,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,6 +15,7 @@ import java.util.Objects;
  */
 
 @Document(collection = "alert")
+
 public class Alert implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,7 +32,7 @@ public class Alert implements Serializable {
     @Field("system_id")
     private String system_id;
 
-    @Field("serial_num")
+    @Field("serial_num") 
     private String serial_num;
 
     @Field("hostname")
@@ -157,6 +161,11 @@ public class Alert implements Serializable {
 
     public void setAlerts(String alerts) {
         this.alerts = alerts;
+    }
+    
+    @JsonAnySetter
+    public void handleUnknown(String key, Object value) {
+      // do something: put to a Map; log a warning, whatever
     }
 
     @Override
