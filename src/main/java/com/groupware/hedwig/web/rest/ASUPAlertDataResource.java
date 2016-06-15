@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -88,6 +89,28 @@ public class ASUPAlertDataResource {
     public List<ASUPAlertData> getAllASUPAlertData() {
         log.debug("REST request to get all ASUPAlertData");
         return aSUPAlertDataService.findAll();
+    }
+    
+    /**
+     * GET  /a-sup-alert-data : get all the aSUPAlertData for a given asup id.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of aSUPAlertData in body
+     */
+    // TODO implement this in the service layer
+    @RequestMapping(value = "/a-sup-alert-data/asup/{id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<ASUPAlertData> getAllASUPAlertDataByASUPID(@PathVariable String id) {
+        log.debug("REST request to get ASUPAlertData for ASUP id: ", id);
+        List<ASUPAlertData> asupMatched = new ArrayList<ASUPAlertData>();
+        List<ASUPAlertData> all = aSUPAlertDataService.findAll();
+        for (ASUPAlertData alert : all) {
+        	if (alert.getAsup_alert_id().equalsIgnoreCase(id)) {
+        		asupMatched.add(alert);
+        	}
+        }
+        return asupMatched;
     }
 
     /**
