@@ -1,9 +1,3 @@
-
-
-$location.path("alert-details.html") 
-
-
-
 <div>
     <h2>ASUP</h2>
     <jhi-alert></jhi-alert>
@@ -24,7 +18,7 @@ $location.path("alert-details.html")
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span>ID</span></th>
+           <!--         <th><span>ID</span></th>   -->
                     <th><span translate="hedwigApp.alert.generated_on">Generated On</span></th>
                     <th><span>Version</span></th>
                     <th><span translate="hedwigApp.alert.system_id">System Id</span></th>
@@ -41,12 +35,12 @@ $location.path("alert-details.html")
             </thead>
             <tbody>
                 <tr ng-repeat="alert in vm.alerts track by alert.id">
-                    <td><a ui-sref="alert-detail({id:alert.id})">{{alert.id}}</a></td>
+          <!--      <td><a ui-sref="alert-detail({id:alert.id})">{{alert.id}}</a></td>   -->
                     <td>{{alert.generated_on}}</td>
                     <td>{{alert.version}}</td>
                     <td>{{alert.system_id}}</td>
                     <td>{{alert.serial_num}}</td>
-                    <td>{{alert.hostname}}</td>
+                    <td><a ui-sref="alert-detail({id:alert.id})">{{alert.hostname}}</a></td>
                     <td>{{alert.sequence}}</td>
                     <td>{{alert.snmp_location}}</td>
                     <td>{{alert.partner_system_id}}</td>
