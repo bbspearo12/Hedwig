@@ -1,3 +1,17 @@
+ <html>
+    <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs></script>
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+		<script src="dirPagination.js"></script>
+    </head>
+      				<form class="form-inline">
+					<div class="form-group">
+						<label >Search</label>
+						<input type="text" ng-model="search" class="form-control" placeholder="Search">
+					</div>
+				</form>
+
 <div>
     <h2>ASUP</h2>
     <jhi-alert></jhi-alert>
@@ -13,36 +27,55 @@
             </div>
         </div>
     </div> -->
-    <br/>
+    <br/> 
     <div class="table-responsive">
         <table class="jh-table table table-striped">
-            <thead>
-                <tr>
-           <!--         <th><span>ID</span></th>   -->
-                    <th><span translate="hedwigApp.alert.generated_on">Generated On</span></th>
-                    <th><span>Version</span></th>
-                    <th><span translate="hedwigApp.alert.system_id">System Id</span></th>
-                    <th><span translate="hedwigApp.alert.serial_num">Serial Num</span></th>
-                    <th><span>Hostname</span></th>
-                    <th><span>Sequence</span></th>
-                    <th><span translate="hedwigApp.alert.snmp_location">Snmp Location</span></th>
-                    <th><span translate="hedwigApp.alert.partner_system_id">Partner System Id</span></th>
-                    <th><span translate="hedwigApp.alert.partner_serial_num">Partner Serial Num</span></th>
-                    <th><span translate="hedwigApp.alert.partner_hostname">Partner Hostname</span></th>
-                    <th><span translate="hedwigApp.alert.boot_clustered">Boot Clustered</span></th>
+            <thead>   
+      <tr>
+           <!--         <th><span>ID</span></th>   -->    
+           <th ng-click="sort('hedwigApp.alert.generated_on')">Generated On
+			<span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.generated_on'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
+							</th>
+              <!--  <th><span translate="hedwigApp.alert.generated_on">Generated On</span></th> -->
+                    <th ng-click="sort('hedwigApp.alert.version')">Version
+                     <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.version'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
+							</th>
+                    <th ng-click="sort('hedwigApp.alert.system_id')">System Id
+                     <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.system_id'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('hedwigApp.alert.serial_num')">Serial Num
+                     <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.serial_num'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('hedwigApp.alert.hostname')">Hostname
+                     <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.hostname'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+            <!--	<th><span>Sequence</span></th>    -->
+     		<!--	<th><span translate="hedwigApp.alert.snmp_location">Snmp Location</span></th>  -->
+                    <th ng-click="sort('hedwigApp.alert.partner_system_id')">Partner System Id
+                     <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.partner_system_id'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
+                     </th>
+                    <th ng-click="sort('hedwigApp.alert.partner_serial_num')">Partner Serial Num
+                     <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.partner_serial_num'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('hedwigApp.alert.partner_hostname')">Partner Hostname
+                     <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.partner_hostname'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('hedwigApp.alert.boot_clustered')">Boot Clustered
+                     <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.boot_clustered'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
+                    </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="alert in vm.alerts track by alert.id">
+                <tr dir-paginate="alert in vm.alerts|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
           <!--      <td><a ui-sref="alert-detail({id:alert.id})">{{alert.id}}</a></td>   -->
                     <td>{{alert.generated_on}}</td>
                     <td>{{alert.version}}</td>
                     <td>{{alert.system_id}}</td>
                     <td>{{alert.serial_num}}</td>
                     <td><a ui-sref="alert-detail({id:alert.id})">{{alert.hostname}}</a></td>
-                    <td>{{alert.sequence}}</td>
-                    <td>{{alert.snmp_location}}</td>
+            <!--    <td>{{alert.sequence}}</td>    -->
+              <!--  <td>{{alert.snmp_location}}</td>  -->
                     <td>{{alert.partner_system_id}}</td>
                     <td>{{alert.partner_serial_num}}</td>
                     <td>{{alert.partner_hostname}}</td>
@@ -72,5 +105,12 @@
                 </tr>
             </tbody>
         </table>
+        <dir-pagination-controls
+					max-size="5"
+					direction-links="true"
+					boundary-links="true">
+		</dir-pagination-controls>
     </div>
 </div>
+</body>
+</html> 

@@ -6,7 +6,7 @@
         .controller('AlertController', AlertController);
 
     AlertController.$inject = ['$scope', '$state', 'DataUtils', 'Alert'];
-
+    
     function AlertController ($scope, $state, DataUtils, Alert) {
         var vm = this;
         vm.alerts = [];
@@ -19,6 +19,10 @@
         };
 
         vm.loadAll();
-        
+        $scope.sort = function(keyname){
+    		$scope.sortKey = keyname;   //set the sortKey to the param passed
+    		$scope.reverse = !$scope.reverse; //if true make it false and vice versa
+    	}
     }
+   
 })();
