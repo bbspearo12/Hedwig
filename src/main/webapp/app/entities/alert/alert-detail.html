@@ -60,7 +60,19 @@
         <hr>
         <dt><span>Status</span></dt>
         <dd>
-            <span>{{vm.alert.alerts}}</span>
+        
+        	<div class="x-panel-body x-panel-body-default x-panel-body-default x-layout-fit" style="overflow: auto; left: 0px; top: 0px; width: 1006px; height: 216px;"><code>{{vm.alert.alerts}}</code></div>
+        	<!-- <pre>{{vm.alert.alerts}}</pre>-->
+        	<!-- <table>
+  				<tr ng-repeat="x in vm.alert.alerts.split(',') track by $index">
+  					
+    				<td><code style="white-space:pre-wrap;"><p class="pre-wrapped" ng-bind-html="x">{{x}}</p></code></td>
+    				<!--<td><pre>{{x}}</pre></td>-->
+    				
+  				</tr>
+			</table> -->
+        	<!--<code style="white-space:pre-wrap;"><p class="pre-wrapped" ng-bind-html="vm.alert.alerts">{{vm.alert.alerts}}</p></code>
+        	<pre><code style=display:block;white-space:pre-wrap>{{vm.alert.alerts}}</code></pre>-->
         </dd>
         <hr>
     </dl>
