@@ -38,7 +38,7 @@ public class ASUPAlertDataService {
      *  @return the list of entities
      */
     public List<ASUPAlertData> findAll() {
-        log.debug("Request to get all ASUPAlertData");
+        //log.debug("Request to get all ASUPAlertData");
         List<ASUPAlertData> result = aSUPAlertDataRepository.findAll();
         return result;
     }

@@ -1,6 +1,8 @@
 package com.groupware.hedwig.aop.logging;
 
-import com.groupware.hedwig.config.Constants;
+import java.util.Arrays;
+
+import javax.inject.Inject;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -12,8 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 
-import javax.inject.Inject;
-import java.util.Arrays;
+import com.groupware.hedwig.config.Constants;
 
 /**
  * Aspect for logging execution of service and repository Spring components.
@@ -50,8 +51,8 @@ public class LoggingAspect {
         try {
             Object result = joinPoint.proceed();
             if (log.isDebugEnabled()) {
-                log.debug("Exit: {}.{}() with result = {}", joinPoint.getSignature().getDeclaringTypeName(),
-                    joinPoint.getSignature().getName(), result);
+                //log.debug("Exit: {}.{}() with result = {}", joinPoint.getSignature().getDeclaringTypeName(),
+                 //   joinPoint.getSignature().getName(), result);
             }
             return result;
         } catch (IllegalArgumentException e) {

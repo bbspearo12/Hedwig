@@ -102,7 +102,7 @@ public class ASUPAlertDataResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public List<ASUPAlertData> getAllASUPAlertDataByASUPID(@PathVariable String id) {
-        log.debug("REST request to get ASUPAlertData for ASUP id: ", id);
+        //log.debug("REST request to get ASUPAlertData for ASUP id: ", id);
         List<ASUPAlertData> asupMatched = new ArrayList<ASUPAlertData>();
         List<ASUPAlertData> all = aSUPAlertDataService.findAll();
         for (ASUPAlertData alert : all) {
