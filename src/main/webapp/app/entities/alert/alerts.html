@@ -54,9 +54,9 @@
                     <th ng-click="sort('hedwigApp.alert.partner_system_id')">Partner System Id
                      <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.partner_system_id'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
                      </th>
-                    <th ng-click="sort('hedwigApp.alert.partner_serial_num')">Partner Serial Num
+           <!--     <th ng-click="sort('hedwigApp.alert.partner_serial_num')">Partner Serial Num
                      <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.partner_serial_num'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
-                    </th>
+                    </th>      --> 
                     <th ng-click="sort('hedwigApp.alert.partner_hostname')">Partner Hostname
                      <span class="glyphicon sort-icon" ng-show="sortKey=='hedwigApp.alert.partner_hostname'" ng-class="{'glyphicon-chevron-up':reverse,' glyphicon-chevron-down':!reverse}"></span>
                     </th>
@@ -67,7 +67,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr dir-paginate="alert in vm.alerts|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
+                <tr dir-paginate="alert in vm.alerts|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
           <!--      <td><a ui-sref="alert-detail({id:alert.id})">{{alert.id}}</a></td>   -->
                     <td>{{alert.generated_on}}</td>
                     <td>{{alert.version}}</td>
@@ -77,29 +77,29 @@
             <!--    <td>{{alert.sequence}}</td>    -->
               <!--  <td>{{alert.snmp_location}}</td>  -->
                     <td>{{alert.partner_system_id}}</td>
-                    <td>{{alert.partner_serial_num}}</td>
+               <!-- <td>{{alert.partner_serial_num}}</td> -->
                     <td>{{alert.partner_hostname}}</td>
                     <td>{{alert.boot_clustered}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
+           <!--                 <button type="submit"
                                     ui-sref="alert-detail({id:alert.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm"></span>
-                            </button>
-                            <button type="submit"
+                            </button>  -->
+          <!--                  <button type="submit"
                                     ui-sref="alert.edit({id:alert.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm"></span>
-                            </button>
+                            </button>      -->
                             <button type="submit"
-                                    ui-sref="alert.delete({id:alert.id})"
+                                 ui-sref="alert.delete({id:alert.id})"
                                     class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm"></span>
-                            </button>
+                                <span class="glyphicon glyphicon-remove-circle"></span> 
+                                <span class="hidden-xs hidden-sm"></span> 
+                            </button>   
                         </div>
                     </td>
                 </tr>
