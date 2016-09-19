@@ -84,7 +84,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .maximumSessions(32) // maximum number of concurrent sessions for one user
             .sessionRegistry(sessionRegistry)
             .and().and()
-            .csrf().ignoringAntMatchers("/api/alerts")
+            .csrf().ignoringAntMatchers("/api/**")
         .and()
             .addFilterAfter(new CsrfCookieGeneratorFilter(), CsrfFilter.class)
             .exceptionHandling()
@@ -142,7 +142,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/protected/**").authenticated()
          .and()
             .authorizeRequests()
-            .antMatchers("/api/alerts")
+            .antMatchers("/api/**")
             .hasAnyAuthority(AuthoritiesConstants.USER)
          .and()
          	.httpBasic() ;
