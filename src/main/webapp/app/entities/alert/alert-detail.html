@@ -59,11 +59,18 @@
             <span>{{vm.alert.boot_clustered}}</span>
         </dd>
         <hr>
-        <dt><span>Status</span></dt>
-        <dd><div ng-bind-html="vm.asup_html"></div></dd>
+        <dt>
+        	<span><a href=#/a-sup-alert-data/asup/{{vm.alert.id}}/?hostname={{vm.alert.hostname}}>Full data</a>
+        </dt>
+        <dd></dd>
+        <hr>
+        <dt><span>Essential File Data</span></dt><br>
+        <pre>
+        <dd><span><div ng-bind-html="vm.alert.alerts"></div></span></dd>
+        </pre>
         <hr>
     </dl>
-
+	
     <button type="submit"
             onclick="window.history.back()"
             class="btn btn-info">

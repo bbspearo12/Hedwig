@@ -31,11 +31,12 @@
             url: '/alert/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Alert'
+                pageTitle: 'ASUP'
             },
             views: {
                 'content@': {
                     templateUrl: 'app/entities/alert/alert-detail.html',
+                	//templateUrl: 'test-page.html',
                     controller: 'AlertDetailController',
                     controllerAs: 'vm'
                 }

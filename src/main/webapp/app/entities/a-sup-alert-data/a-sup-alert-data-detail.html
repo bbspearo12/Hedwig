@@ -1,12 +1,13 @@
 
 <div>
-    <h2><span>Asup Alert Data</span> {{vm.aSUPAlertData.id}}</h2>
+    <h2><span>ASUP Data</span></h2>
     <hr>
     <dl class="dl-horizontal">
-        <dt><span translate="hedwigApp.aSUPAlertData.asup_alert_id">Asup Alert Id</span></dt>
+  <!--      <dt><span translate="hedwigApp.aSUPAlertData.asup_alert_id">Asup Alert Id</span></dt>  
         <dd>
-            <span>{{vm.aSUPAlertData.asup_alert_id}}</span>
+            <span>{{vm.aSUPAlertData.asup_alert_id}}</span> 
         </dd>
+       	-->
         <hr>
         <dt><span translate="hedwigApp.aSUPAlertData.asup_alert_file_name">Asup Alert File Name</span></dt>
         <dd>
@@ -15,7 +16,9 @@
         <hr>
         <dt><span translate="hedwigApp.aSUPAlertData.asup_alert_file_data">Asup Alert File Data</span></dt>
         <dd>
-            <span>{{vm.aSUPAlertData.asup_alert_file_data}}</span>
+        	<pre>
+            <div ng-bind-html="vm.aSUPAlertData.asup_alert_file_data"></div>
+            </pre>
         </dd>
         <hr>
     </dl>

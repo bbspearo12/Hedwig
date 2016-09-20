@@ -26,6 +26,23 @@
             resolve: {
             }
         })
+        .state('a-sup-alert-data-by-asup', {
+            parent: 'entity',
+            url: '/a-sup-alert-data/asup/{id}/:param1',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'ASUPAlertData'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/a-sup-alert-data/a-sup-alert-data.html',
+                    controller: 'ASUPAlertDataController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+            }
+        })
         .state('a-sup-alert-data-detail', {
             parent: 'entity',
             url: '/a-sup-alert-data/{id}',

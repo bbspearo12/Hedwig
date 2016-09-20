@@ -5,11 +5,13 @@
         .module('hedwigApp')
         .controller('ASUPAlertDataDetailController', ASUPAlertDataDetailController);
 
-    ASUPAlertDataDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'DataUtils', 'entity', 'ASUPAlertData'];
+    ASUPAlertDataDetailController.$inject = ['$sce', '$scope', '$rootScope', '$stateParams', 'DataUtils', 'entity', 'ASUPAlertData'];
 
-    function ASUPAlertDataDetailController($scope, $rootScope, $stateParams, DataUtils, entity, ASUPAlertData) {
+    function ASUPAlertDataDetailController($sce, $scope, $rootScope, $stateParams, DataUtils, entity, ASUPAlertData) {
         var vm = this;
         vm.aSUPAlertData = entity;
+        vm.asup = vm.aSUPAlertData.asup_alert_file_data;
+        vm.asup_html = $sce.trustAsHtml(vm.asup);
         
         var unsubscribe = $rootScope.$on('hedwigApp:aSUPAlertDataUpdate', function(event, result) {
             vm.aSUPAlertData = result;
