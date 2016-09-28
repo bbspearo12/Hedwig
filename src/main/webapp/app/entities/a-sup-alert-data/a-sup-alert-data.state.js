@@ -28,19 +28,22 @@
         })
         .state('a-sup-alert-data-by-asup', {
             parent: 'entity',
-            url: '/a-sup-alert-data/asup/{id}/:param1',
+            url: '/a-sup-alert-data/asup/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'ASUPAlertData'
+                pageTitle: 'AllASUPData'
             },
             views: {
                 'content@': {
                     templateUrl: 'app/entities/a-sup-alert-data/a-sup-alert-data.html',
-                    controller: 'ASUPAlertDataController',
+                    controller: 'ASUPAlertByASUPDataController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
+            	entity: ['$stateParams', 'ASUPAlertDataByASUP', function($stateParams, ASUPAlertDataByASUP) {
+                    return ASUPAlertDataByASUP({id : $stateParams.id});
+                }]
             }
         })
         .state('a-sup-alert-data-detail', {

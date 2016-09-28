@@ -92,7 +92,7 @@ public class ASUPAlertDataResource {
     }
     
     /**
-     * GET  /a-sup-alert-data : get all the aSUPAlertData for a given asup id.
+     * GET  /a-sup-alert-data/asup/:id : get all the aSUPAlertData for a given asup id.
      *
      * @return the ResponseEntity with status 200 (OK) and the list of aSUPAlertData in body
      */
@@ -102,7 +102,7 @@ public class ASUPAlertDataResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public List<ASUPAlertData> getAllASUPAlertDataByASUPID(@PathVariable String id) {
-        //log.debug("REST request to get ASUPAlertData for ASUP id: ", id);
+        log.debug("REST request to get ASUPAlertData for ASUP id: {}", id);
         List<ASUPAlertData> asupMatched = new ArrayList<ASUPAlertData>();
         List<ASUPAlertData> all = aSUPAlertDataService.findAll();
         for (ASUPAlertData alert : all) {
@@ -110,6 +110,7 @@ public class ASUPAlertDataResource {
         		asupMatched.add(alert);
         	}
         }
+        log.debug("Returning data: for id: {}", asupMatched.size(), id);
         return asupMatched;
     }
 
