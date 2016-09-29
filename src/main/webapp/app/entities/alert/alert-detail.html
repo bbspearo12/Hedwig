@@ -64,7 +64,7 @@
         </dt>
         <dd></dd>
         <hr>
-        <dt><span>Essential File Data</span></dt><br>
+        <dt><span>Essential Files*</span></dt><br>
         <!--<pre>
         <dd><span><div ng-bind-html="vm.alert.alerts"></div></span></dd>
         </pre>-->
@@ -73,6 +73,9 @@
         	<span><a ui-sref=a-sup-alert-data-by-asup-for-file({id:vm.alert.id,hostname:vm.alert.hostname,filename:file})>{{file}}</a>
         </dd>	
         </dt>
+        </br>
+        *File content might be empty if the ASUP did not have that particular file in the attachment. </br> Please see all files, to see all the files that were in the attachment for this ASUP
+        
         <hr>
     </dl>
 	
