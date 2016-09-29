@@ -43,6 +43,23 @@
             resolve: {
             }     
         })
+        .state('a-sup-alert-data-by-asup-for-file', {
+            parent: 'entity',
+            url: '/a-sup-alert-data/asupfile/:id?hostname&filename',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'ASUPDataByFile'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/a-sup-alert-data/a-sup-alert-data-detail.html',
+                    controller: 'ASUPAlertByASUPFileDataController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+            }     
+        })
         .state('a-sup-alert-data-detail', {
             parent: 'entity',
             url: '/a-sup-alert-data/{id}',
