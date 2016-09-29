@@ -28,7 +28,7 @@
         })
         .state('a-sup-alert-data-by-asup', {
             parent: 'entity',
-            url: '/a-sup-alert-data/asup/{id}',
+            url: '/a-sup-alert-data/asup/:id?hostname',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'AllASUPData'
@@ -41,10 +41,7 @@
                 }
             },
             resolve: {
-            	entity: ['$stateParams', 'ASUPAlertDataByASUP', function($stateParams, ASUPAlertDataByASUP) {
-                    return ASUPAlertDataByASUP({id : $stateParams.id});
-                }]
-            }
+            }     
         })
         .state('a-sup-alert-data-detail', {
             parent: 'entity',
