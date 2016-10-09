@@ -58,6 +58,12 @@ public class Alert implements Serializable {
 
     @Field("alerts")
     private String alerts;
+    
+    @Field("asup_type")
+    private String asup_type;
+    
+    @Field("asup_severity")
+    private String asup_severity;
 
     public String getId() {
         return id;
@@ -163,7 +169,23 @@ public class Alert implements Serializable {
         this.alerts = alerts;
     }
     
-    @JsonAnySetter
+    public String getAsup_type() {
+		return asup_type;
+	}
+
+	public void setAsup_type(String asup_type) {
+		this.asup_type = asup_type;
+	}
+
+	public String getAsup_severity() {
+		return asup_severity;
+	}
+
+	public void setAsup_severity(String asup_severity) {
+		this.asup_severity = asup_severity;
+	}
+
+	@JsonAnySetter
     public void handleUnknown(String key, Object value) {
       // do something: put to a Map; log a warning, whatever
     }
