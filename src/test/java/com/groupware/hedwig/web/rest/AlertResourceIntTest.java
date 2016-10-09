@@ -139,7 +139,6 @@ public class AlertResourceIntTest {
         assertThat(testAlert.getPartner_serial_num()).isEqualTo(DEFAULT_PARTNER_SERIAL_NUM);
         assertThat(testAlert.getPartner_hostname()).isEqualTo(DEFAULT_PARTNER_HOSTNAME);
         assertThat(testAlert.getBoot_clustered()).isEqualTo(DEFAULT_BOOT_CLUSTERED);
-        assertThat(testAlert.getAlerts()).isEqualTo(DEFAULT_ALERTS);
     }
 
     @Test
@@ -162,8 +161,7 @@ public class AlertResourceIntTest {
                 .andExpect(jsonPath("$.[*].partner_system_id").value(hasItem(DEFAULT_PARTNER_SYSTEM_ID.toString())))
                 .andExpect(jsonPath("$.[*].partner_serial_num").value(hasItem(DEFAULT_PARTNER_SERIAL_NUM.toString())))
                 .andExpect(jsonPath("$.[*].partner_hostname").value(hasItem(DEFAULT_PARTNER_HOSTNAME.toString())))
-                .andExpect(jsonPath("$.[*].boot_clustered").value(hasItem(DEFAULT_BOOT_CLUSTERED.toString())))
-                .andExpect(jsonPath("$.[*].alerts").value(hasItem(DEFAULT_ALERTS.toString())));
+                .andExpect(jsonPath("$.[*].boot_clustered").value(hasItem(DEFAULT_BOOT_CLUSTERED.toString())));
     }
 
     @Test
@@ -186,8 +184,7 @@ public class AlertResourceIntTest {
             .andExpect(jsonPath("$.partner_system_id").value(DEFAULT_PARTNER_SYSTEM_ID.toString()))
             .andExpect(jsonPath("$.partner_serial_num").value(DEFAULT_PARTNER_SERIAL_NUM.toString()))
             .andExpect(jsonPath("$.partner_hostname").value(DEFAULT_PARTNER_HOSTNAME.toString()))
-            .andExpect(jsonPath("$.boot_clustered").value(DEFAULT_BOOT_CLUSTERED.toString()))
-            .andExpect(jsonPath("$.alerts").value(DEFAULT_ALERTS.toString()));
+            .andExpect(jsonPath("$.boot_clustered").value(DEFAULT_BOOT_CLUSTERED.toString()));
     }
 
     @Test
@@ -240,7 +237,6 @@ public class AlertResourceIntTest {
         assertThat(testAlert.getPartner_serial_num()).isEqualTo(UPDATED_PARTNER_SERIAL_NUM);
         assertThat(testAlert.getPartner_hostname()).isEqualTo(UPDATED_PARTNER_HOSTNAME);
         assertThat(testAlert.getBoot_clustered()).isEqualTo(UPDATED_BOOT_CLUSTERED);
-        assertThat(testAlert.getAlerts()).isEqualTo(UPDATED_ALERTS);
     }
 
     @Test

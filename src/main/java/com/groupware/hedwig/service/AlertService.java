@@ -1,10 +1,15 @@
 package com.groupware.hedwig.service;
 
+import com.groupware.hedwig.domain.ASUPAlertData;
 import com.groupware.hedwig.domain.Alert;
 import com.groupware.hedwig.repository.AlertRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.BasicQuery;
+import org.springframework.data.mongodb.core.query.Query;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -19,6 +24,8 @@ public class AlertService {
     
     @Inject
     private AlertRepository alertRepository;
+    @Inject
+	private MongoOperations mongoOperation;
     
     /**
      * Save a alert.
@@ -40,6 +47,18 @@ public class AlertService {
     public List<Alert> findAll() {
         log.debug("Request to get all Alerts");
         List<Alert> result = alertRepository.findAll();
+        return result;
+    }
+    
+    /**
+     *  Get latest 1000 alerts, sorted.
+     *  
+     *  @return the list of entities
+     */
+    public List<Alert> findLatest() {
+        log.debug("Request to get all Alerts");
+        Query q = new Query().with(new Sort(Sort.Direction.DESC, "_id")).limit(1000);
+        List<Alert> result = mongoOperation.find(q, Alert.class);
         return result;
     }
 

@@ -87,7 +87,7 @@ public class AlertResource {
     @Timed
     public List<Alert> getAllAlerts() {
         log.debug("REST request to get all Alerts");
-        return alertService.findAll();
+        return alertService.findLatest();
     }
 
     /**

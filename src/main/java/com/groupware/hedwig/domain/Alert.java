@@ -1,6 +1,7 @@
 package com.groupware.hedwig.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -55,7 +56,8 @@ public class Alert implements Serializable {
 
     @Field("boot_clustered")
     private String boot_clustered;
-
+   
+    @Transient
     @Field("alerts")
     private String alerts;
     
