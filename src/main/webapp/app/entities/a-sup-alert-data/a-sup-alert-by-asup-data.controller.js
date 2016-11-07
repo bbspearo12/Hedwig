@@ -11,6 +11,7 @@
     function ASUPAlertByASUPDataController ($http, $stateParams, $location, $scope, $state, DataUtils) {
     	var vm = this;
         vm.hostname = $location.search()['hostname'];
+        vm.id = $stateParams.id;
         $http.get('api/a-sup-alert-data/asup/' + $stateParams.id)
         .then(function (response){
         	vm.aSUPAlertData = angular.fromJson(response.data);

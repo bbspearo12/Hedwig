@@ -6,20 +6,14 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <!--<th><span>ID</span></th>-->
-                    <!--<th><span translate="hedwigApp.aSUPAlertData.asup_alert_id">Asup Alert Id</span></th>-->
                     <th translate="hedwigApp.aSUPAlertData.asup_alert_file_name">ASUP File Name</th>
-                    <!--<th><span translate="hedwigApp.aSUPAlertData.asup_alert_file_data">ASUP File Data</span></th>-->
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="aSUPAlertData in vm.aSUPAlertData track by aSUPAlertData.id">
-                    <!--<td>{{aSUPAlertData.id}}</td>-->
-                    <!--<td>{{aSUPAlertData.asup_alert_id}}</td>-->
-                    <td><a ui-sref="a-sup-alert-data-detail({id:aSUPAlertData.id})">{{aSUPAlertData.asup_alert_file_name}}</a></td>
-                    <!--<td>{{aSUPAlertData.asup_alert_file_data}}</td>-->
-                    
+                    <!--<td><a ui-sref="a-sup-alert-data-detail({id:aSUPAlertData.id})">{{aSUPAlertData.asup_alert_file_name}}</a></td>-->
+                    <td><a ui-sref=a-sup-alert-data-by-asup-for-file({id:vm.id,hostname:vm.hostname,filename:aSUPAlertData.asup_alert_file_name})>{{aSUPAlertData.asup_alert_file_name}}</a></td>
+                                        
                 </tr>
             </tbody>
         </table>
