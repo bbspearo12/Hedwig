@@ -12,6 +12,8 @@ import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Query;
 
 import javax.inject.Inject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,7 +61,15 @@ public class AlertService {
         log.debug("Request to get all Alerts");
         Query q = new Query().with(new Sort(Sort.Direction.DESC, "_id")).limit(1000);
         List<Alert> result = mongoOperation.find(q, Alert.class);
-        return result;
+        List<Alert> finalList = new ArrayList<Alert>();
+        for (Alert alert: result) {
+        	if (alert.getAsup_type() != null && (
+        			alert.getAsup_type().contains(Alert.asupTypeUser) ||
+        			alert.getAsup_type().contains(Alert.asupTypeWeekly))) {
+        		finalList.add(alert);
+        	}
+        }
+        return finalList;
     }
 
     /**
