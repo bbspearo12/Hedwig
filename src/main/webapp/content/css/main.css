@@ -1,3 +1,33 @@
+scrollit {
+    overflow:scroll;
+    height:100px;
+}
+submit {
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     /*border is optional*/
+     border-bottom:1px solid #444; 
+     cursor: pointer;
+}
+.message-container {
+    clear: both;
+    display: inline-block;
+    width: 960px;
+    height: auto;
+}
+.message-container .right {
+    float: right;
+    text-align: right;
+}
+
+.message-content {
+    display: inline-block;
+    float: left;
+    width: 300px;
+}
+
 body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -220,6 +250,17 @@ ul#strengthBar {
    http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 .width-min { width: 1% !important; }
 
+/*
+input[type=submit] {
+padding:5px 15px; 
+background:white; 
+border:0 none;
+   	cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: none; 
+ }
+*/
+
 /* Makes toolbar not wrap on smaller screens
  http://www.sketchingwithcss.com/samplechapter/cheatsheet.html#right */
 .flex-btn-group-container {
@@ -233,7 +274,7 @@ ul#strengthBar {
 
 .jh-table > tbody > tr > td {
     /* Align text in td verifically (top aligned by Bootstrap) */
-    vertical-align: middle;
+    vertical-align: top;
 }
 
 .jh-table > thead > tr > th > .glyphicon-sort, .jh-table > thead > tr > th > .glyphicon-sort-by-attributes, .jh-table > thead > tr > th > .glyphicon-sort-by-attributes-alt {
@@ -281,3 +322,4 @@ ul#strengthBar {
 .pre-wrapped {
     white-space: pre-wrap;
 }
+

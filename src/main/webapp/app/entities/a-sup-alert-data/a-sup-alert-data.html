@@ -1,21 +1,33 @@
+
 <div>
     <h2>ASUP Data for {{vm.hostname}}</h2>
-    <jhi-alert></jhi-alert>
-    <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
+    <div class="message-container">
+    <div class="scrollit">
+        <table>
             <thead>
                 <tr>
                     <th translate="hedwigApp.aSUPAlertData.asup_alert_file_name">ASUP File Name</th>
                 </tr>
             </thead>
+            
             <tbody>
                 <tr ng-repeat="aSUPAlertData in vm.aSUPAlertData track by aSUPAlertData.id">
-                    <!--<td><a ui-sref="a-sup-alert-data-detail({id:aSUPAlertData.id})">{{aSUPAlertData.asup_alert_file_name}}</a></td>-->
-                    <td><a ui-sref=a-sup-alert-data-by-asup-for-file({id:vm.id,hostname:vm.hostname,filename:aSUPAlertData.asup_alert_file_name})>{{aSUPAlertData.asup_alert_file_name}}</a></td>
-                                        
+                <style="overflow-y:scroll; height:100px;">
+                    <td valign="top">
+                    	<form ng-submit="inset(vm.id, vm.hostname, aSUPAlertData.asup_alert_file_name)">                    
+                    	<input button class="btn btn-link" role="link" type="submit" value="{{aSUPAlertData.asup_alert_file_name}}">	
+         				</form>
+                    </td>
                 </tr>
-            </tbody>
+                <tr>
+           </tbody>
+          
         </table>
+        <div>
+   			<pre>
+   				<div ng-bind-html="vm.asupAlertFileData" class="message-content"></div>
+			</pre>
+		</div>
+        </div>
     </div>
 </div>

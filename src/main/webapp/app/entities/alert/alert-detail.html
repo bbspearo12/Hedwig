@@ -79,7 +79,7 @@
         <dd><span><div ng-bind-html="vm.alert.alerts"></div></span></dd>
         </pre>-->
         <dt>
-        <dd ng-repeat="file in vm.required_files">
+        <dd ng-repeat="file in vm.available_files">
         	<span><a ui-sref=a-sup-alert-data-by-asup-for-file({id:vm.alert.id,hostname:vm.alert.hostname,filename:file})>{{file}}</a>
         </dd>	
         </dt>

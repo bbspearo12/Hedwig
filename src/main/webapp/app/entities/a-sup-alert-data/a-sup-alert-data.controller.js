@@ -5,9 +5,9 @@
         .module('hedwigApp')
         .controller('ASUPAlertDataController', ASUPAlertDataController);
 
-    ASUPAlertDataController.$inject = ['$location', '$scope', '$state', 'DataUtils', 'ASUPAlertData'];
+    ASUPAlertDataController.$inject = ['$http','$location', '$scope', '$state', 'DataUtils', 'ASUPAlertData'];
 
-    function ASUPAlertDataController ($location, $scope, $state, DataUtils, ASUPAlertData) {
+    function ASUPAlertDataController ($http, $location, $scope, $state, DataUtils, ASUPAlertData) {
         var vm = this;
         vm.aSUPAlertData = [];
         vm.openFile = DataUtils.openFile;
@@ -18,8 +18,6 @@
                 vm.aSUPAlertData = result;
             });
         };
-
         vm.loadAll();
-        
     }
 })();

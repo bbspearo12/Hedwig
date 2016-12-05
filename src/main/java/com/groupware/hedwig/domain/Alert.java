@@ -20,8 +20,8 @@ import java.util.Objects;
 public class Alert implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    public static final String asupTypeWeekly = "WEEKLY_LOG";
-    public static final String asupTypeUser = "USER_TRIGGERED";
+//    public static final String asupTypeWeekly = "WEEKLY_LOG";
+//    public static final String asupTypeUser = "USER_TRIGGERED";
 
     
     @Id

@@ -16,5 +16,13 @@
         .then(function (response){
         	vm.aSUPAlertData = angular.fromJson(response.data);
         });
+        $scope.inset = function (id, hostname, filename) {
+        	var url = '/api/a-sup-alert-data/asupfile/' + id +'?hostname='+hostname+'&filename='+filename
+        	$http.get(url)
+        	.then(function (response) {
+        		vm.asupAlertData = angular.fromJson(response.data);
+        		vm.asupAlertFileData = vm.asupAlertData.asup_alert_file_data;
+        	});
+        }
     }
 })();
